@@ -27,7 +27,6 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/passport": "9.0.0",
     "@nestjs/platform-express": "^10.0.0",
-    "@nestjs/swagger": "^7.1.10",
     "@nestjs/typeorm": "^10.0.0",
     "@types/bcrypt": "^5.0.0",
     "@types/passport-jwt": "3.0.6",
@@ -44,6 +43,7 @@
     "typeorm": "^0.3.17"
   },
   "devDependencies": {
+    "@nestjs/swagger": "^7.1.10",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",
