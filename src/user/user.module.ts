@@ -9,6 +9,13 @@ import { AuthService } from './services/auth.service';
 import { AuhtController } from './controllers/auth.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtStrategy } from './jwt.strategy';
+import { CqrsModule } from '@nestjs/cqrs';
+import { RegisterCommandHandler } from 'src/commands/auth/register/register.handler';
+import { LoginCommandHandler } from 'src/commands/auth/login/login.handler';
+import { DeleteUserCommandHandler } from 'src/commands/user/delete-user/delete-user.handler';
+import { UpdateUserCommandHandler } from 'src/commands/user/update-user/update-user.handler';
+import { GetListUsersQueryHandler } from 'src/queries/user/get-list-users/get-list-users.handler';
+import { GetUserByIdQueryHandler } from 'src/queries/user/get-by-id/get-user-by-id.handler';
 
 @Module({
   imports: [
@@ -28,8 +35,19 @@ import { JwtStrategy } from './jwt.strategy';
       }),
       inject: [ConfigService],
     }),
+    CqrsModule,
   ],
   controllers: [UserController, AuhtController],
-  providers: [UserService, AuthService, JwtStrategy],
+  providers: [
+    UserService,
+    AuthService,
+    JwtStrategy,
+    RegisterCommandHandler,
+    LoginCommandHandler,
+    DeleteUserCommandHandler,
+    UpdateUserCommandHandler,
+    GetListUsersQueryHandler,
+    GetUserByIdQueryHandler
+  ],
 })
 export class UserModule {}

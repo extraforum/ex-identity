@@ -42,7 +42,7 @@ export class AuthService {
   private _createToken({ email }): any {
     const accessToken = this.jwtService.sign({ email });
     return {
-      expiresIn:  process.env.EXPIRESIN,
+      expiresIn: process.env.EXPIRESIN,
       accessToken,
     };
   }
